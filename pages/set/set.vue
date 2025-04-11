@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<view class="list-cell m-t b-b" @click="navTo('清除缓存')" hover-class="cell-hover" :hover-stay-time="50">
+		<view class="list-cell m-t b-b" @click="cleanCache" hover-class="cell-hover" :hover-stay-time="50">
 			<text class="cell-tit">清除缓存</text>
 			<text class="cell-more yticon icon-you"></text>
 		</view>
@@ -47,6 +47,7 @@
 				    	if(e.confirm){
 				    		this.logout();
 				    		setTimeout(()=>{
+								this.cleanCache();
 				    			uni.navigateBack();
 				    		}, 200)
 				    	}
@@ -58,7 +59,9 @@
 				let statusTip = e.detail.value ? '打开': '关闭';
 				this.$api.msg(`${statusTip}消息推送`);
 			},
-
+            cleanCache() {
+				uni.clearStorage();
+			}
 		}
 	}
 </script>

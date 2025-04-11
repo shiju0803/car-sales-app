@@ -70,7 +70,6 @@
 					uni.setStorageSync('password',this.password);
 					memberInfo().then(response=>{
 						this.login(response.data);
-						console.log("111")
 						uni.navigateBack();
 					});
 				}).catch(() => {

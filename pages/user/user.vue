@@ -5,7 +5,7 @@
 			<view class="user-info-box">
 				<view class="portrait-box">
 					<image class="portrait" :src="icon || '/static/missing-face.png'"></image>
-					<text class="username">{{ nickname || '游客'}}</text>
+					<text class="username">{{ username || '游客'}}</text>
 				</view>
 			</view>
 		</view>
@@ -47,11 +47,11 @@
 				moving: false,
 				couponCount:null,
 				username: 'admin',
-				icon: '/static/missing-face.png'
+				icon: ''
 			}
 		},
 		onLoad(){ 
-			this.nickname = uni.getStorageSync('username');
+			this.username = uni.getStorageSync('username');
 		},
 		onShow(){},
 		// #ifndef MP
